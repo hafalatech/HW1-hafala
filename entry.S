@@ -650,6 +650,10 @@ ENTRY(sys_call_table)
 	.long SYMBOL_NAME(sys_sched_setaffinity)
 	.long SYMBOL_NAME(sys_sched_getaffinity)
 
-	.rept NR_syscalls-(.-sys_call_table)/4
+	.long SYMBOL_NAME(sys_set_child_max_proc)	/* Custom system calls */
+	.long SYMBOL_NAME(sys_get_max_proc)
+	.long SYMBOL_NAME(sys_get_subproc_count)
+
+	.rept (NR_syscalls-(.-sys_call_table)/4 - 3)
 		.long SYMBOL_NAME(sys_ni_syscall)
 	.endr
