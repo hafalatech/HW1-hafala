@@ -44,7 +44,7 @@ int get_subproc_count()
         (
                         "int $0x80;"
                         : "=a" (res)
-                        : "0" (244) ,"b" (pid)
+                        : "0" (245) ,"b" (pid)
                         : "memory"
         );
         if (res>=(unsigned long)(-125))
